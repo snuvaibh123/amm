@@ -136,7 +136,21 @@ export const About = () => {
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-6">
-            
+              {[
+                { label: "Clients Coached", value: "400+" },
+                { label: "Success Rate", value: "92%" },
+                { label: "Avg. Fat Loss", value: "15-25kg" },
+                { label: "Satisfaction", value: "5★" }, 
+              ].map((stat, index) => (
+                <div key={index} className="glass p-4 rounded-xl">
+                  <div className="text-2xl font-bold gradient-text">{stat.value}</div>
+                  <div className="text-sm text-foreground/60">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
         {/* Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
