@@ -70,29 +70,6 @@ export const Hero = () => {
               personalized strategies, and transformative results.
             </motion.p>
 
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-              className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl mx-auto mt-12"
-            >
-              {[
-                { number: "400+", label: "Transformations" },
-                { number: "15+", label: "Years Experience" },
-                { number: "92%", label: "Success Rate" },
-              ].map((stat, index) => (
-                <div key={index} className="glass-intense p-6 rounded-2xl">
-                  <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-foreground/70 text-sm tracking-wide">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -100,13 +77,19 @@ export const Hero = () => {
               transition={{ delay: 0.9, duration: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12"
             >
+              {/* Start Your Journey Button */}
               <Button
-                onClick={() => scrollToSection("Ebook")}
+                as="a"
+                href="https://docs.google.com/forms/d/1gEswqUTqwT4Z7v0h486jT7gNwNu1GTIp_6i6bB48jjw/viewform?edit_requested=true&pli=1"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-7 rounded-full text-lg glow-coral transition-all duration-300 hover:scale-105 group"
               >
                 Start your journey
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
+
+              {/* Learn More Button */}
               <Button
                 onClick={() => scrollToSection("about")}
                 variant="outline"
