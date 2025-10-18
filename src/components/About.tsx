@@ -135,7 +135,8 @@ export const About = () => {
                 lifestyle.
               </p>
             </div>
-
+            <div className="grid grid-cols-2 gap-4 pt-6">
+            
         {/* Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
