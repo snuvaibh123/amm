@@ -1,6 +1,8 @@
 import { Mail, Instagram, Linkedin, Phone } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const Footer = () => {
+  const navigate = useNavigate();
   return (
     <footer className="relative py-16 border-t border-border/50">
       <div className="container mx-auto px-4">
@@ -19,13 +21,27 @@ export const Footer = () => {
             <h4 className="text-lg font-bold">Quick Links</h4>
             <nav className="flex flex-col gap-2">
               {["About", "Free ebook", "Transformations", "Contact"].map((link) => (
-                <a
+                <button
                   key={link}
-                  href={`#${link.toLowerCase().replace(" ", "-")}`}
-                  className="text-foreground/70 hover:text-primary transition-colors text-sm"
+                  onClick={() => {
+                    if (link === "Transformations") {
+                      navigate("/transformations");
+                    } else {
+                      const currentPath = window.location.pathname;
+                      if (currentPath !== "/") {
+                        navigate(`/#${link.toLowerCase().replace(" ", "-")}`);
+                      } else {
+                        const element = document.getElementById(link.toLowerCase().replace(" ", "-"));
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }
+                    }
+                  }}
+                  className="text-foreground/70 hover:text-primary transition-colors text-sm text-left"
                 >
                   {link}
-                </a>
+                </button>
               ))}
             </nav>
           </div>

@@ -3,10 +3,12 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MacroCalculator } from "@/components/MacroCalculator";
+import { useNavigate } from "react-router-dom";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,14 +20,14 @@ export const Navigation = () => {
 
   const scrollToSection = (id: string) => {
     if (id === "testimonials") {
-      window.location.href = "/transformations";
+      navigate("/transformations");
       return;
     }
 
     const currentPath = window.location.pathname;
 
     if (currentPath !== "/") {
-      window.location.href = `/#${id}`;
+      navigate(`/#${id}`);
       return;
     }
 
